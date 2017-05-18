@@ -17,12 +17,15 @@
 
 </head>
 <body>
+<header class="page-header7 headerText">
+  <h1>Crystal Counter<small>by Gregory Draheim</small></h1>
+</header>
 
-	<header class="container headerText">
-			Cyrstal Counter!
-	</header>
+	<!-- <header class="container headerText"> -->
+			<!-- Cyrstal Counter! -->
+	<!-- </header> -->
 
-	<div>
+	<div class="container">
 		<ul>
 			<li>There are four crystals displayed as buttons on the page</li>
 			<br>
@@ -33,23 +36,49 @@
 			<li>Try and reach the goal number</li>
 			<br>
 		</ul>
-
-		<p class="goalNum">Goal Number: </p>
-		<p class="TotNum">Your Total: </p>
+		
+		<p class="goalNum goalStyle">Goal Number: </p>
+		<p class="TotNum goalStyle">Your Total: </p>
 
 		<div class="container">
 			<div class="row">
-				<img src="" alt="Emerald" class="crystalButton crys1 crysImage col-md-3">
-				<img src="" alt="Quartz" class="crystalButton crys2 crysImage col-md-3">
-				<img src="" alt="Ruby" class="crystalButton crys3 crysImage col-md-3">
-				<img src="" alt="Geode" class="crystal Button crys4 crysImage col-md-3">
+				<img src="assets/images/emerald.jpg" alt="Emerald" class="crystalButton crys1 crysImage col-md-3">
+				<img src="assets/images/Quartz 1.jpg" alt="Quartz" class="crystalButton crys2 crysImage col-md-3">
+				<img src="assets/images/ruby.jpg" alt="Ruby" class="crystalButton crys3 crysImage col-md-3">
+				<img src="assets/images/small-geode.jpg" alt="Geode" class="crystal Button crys4 crysImage col-md-3">
 			</div>
 		</div>
-
-		<p>Wins: </p>
-		<p>Losses</p>
-
+		<section>
+			<p class="winnerTrack">Wins: </p>
+			<p class="loserTrack">Losses: </p>
+		</section>
 	</div>
+
+	<!--Footer with bootstrap navbar -->
+	<footer class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Gregory Draheim &copy 2017</a></li>
+       
+      </ul>
+      
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
 	<script type="text/javascript">
 			
@@ -60,7 +89,6 @@
 			var losses = 0;
 			var stateCheck;
 
-			
 
 			goalPoints = Math.floor(Math.random() * 69 + 51);
 
@@ -93,6 +121,25 @@
 				alert( "Better luck next time")
 			}
 
+			var lTracker = $('.loserTrack');
+			var wTracker = $('.winnerTrack')
+
+// Tried to implement this reset function. totPoints reset woudln't work. was that b/c toktPoints is assigned 
+// new data inside click event?
+			function reset () {
+				totPoints = 0;
+				goalPoints = Math.floor(Math.random() * 69 + 51);
+				goalNumber.text("Goal Number: " + goalPoints);
+				crys1Points = getRand();
+				crys2Points = getRand();
+				crys3Points = getRand();
+				crys4Points = getRand();
+				totNumber.text("Your Total: " + totPoints);
+				lTracker.text("Losses: " + losses);
+				wTracker.text("Wins: "+ wins);
+
+
+			}
 			
 
 			var goalNumber = $('.goalNum');
@@ -107,19 +154,21 @@
 					console.log(totPoints);
 					console.log(crys1Points);	
 					if ( goalPoints === totPoints && totPoints != 0 ) {
-						totPoints = 0;
-						goalPoints = Math.floor(Math.random() * 69 + 51);
-						goalNumber.text("Goal Number: " + goalPoints);
-						crys1Points = getRand();
-						crys2Points = getRand();
-						crys3Points = getRand();
-						crys4Points = getRand();
+						// totPoints = 0;
+						// goalPoints = Math.floor(Math.random() * 69 + 51);
+						// goalNumber.text("Goal Number: " + goalPoints);
+						// crys1Points = getRand();
+						// crys2Points = getRand();
+						// crys3Points = getRand();
+						// crys4Points = getRand();
 						wins++;
 						win();
+						reset();
 						}
 					else if ( totPoints > goalPoints) {
-						losses--;
+						losses++;
 						lose();
+						reset();
 					}				
 			});
 
@@ -130,19 +179,21 @@
 					console.log(totPoints);
 					console.log(crys2Points);
 					if ( goalPoints === totPoints && totPoints != 0 ) {
-						totPoints = 0;
-						goalPoints = Math.floor(Math.random() * 69 + 51);
-						goalNumber.text("Goal Number: " + goalPoints);
-						crys1Points = getRand();
-						crys2Points = getRand();
-						crys3Points = getRand();
-						crys4Points = getRand();
+						// totPoints = 0;
+						// goalPoints = Math.floor(Math.random() * 69 + 51);
+						// goalNumber.text("Goal Number: " + goalPoints);
+						// crys1Points = getRand();
+						// crys2Points = getRand();
+						// crys3Points = getRand();
+						// crys4Points = getRand();
 						wins++;
 						win();
+						reset();
 						}
 					else if ( totPoints > goalPoints) {
-						losses--;
+						losses++;
 						lose();
+						reset();
 					}
 			});
 
@@ -153,19 +204,21 @@
 					console.log(totPoints);
 					console.log(crys3Points);
 					if ( goalPoints === totPoints && totPoints != 0 ) {
-						totPoints = 0;
-						goalPoints = Math.floor(Math.random() * 69 + 51);
-						goalNumber.text("Goal Number: " + goalPoints);
-						crys1Points = getRand();
-						crys2Points = getRand();
-						crys3Points = getRand();
-						crys4Points = getRand();
+						// totPoints = 0;
+						// goalPoints = Math.floor(Math.random() * 69 + 51);
+						// goalNumber.text("Goal Number: " + goalPoints);
+						// crys1Points = getRand();
+						// crys2Points = getRand();
+						// crys3Points = getRand();
+						// crys4Points = getRand();
 						wins ++;
 						win();
+						reset();
 						}
 					else if ( totPoints > goalPoints) {
-						losses--;
+						losses++;
 						lose();
+						reset();
 					}			});
 
 					$('.crys4').on("click", function(event) {
@@ -175,19 +228,22 @@
 					console.log(totPoints);
 					console.log(crys4Points);
 					if ( goalPoints === totPoints && totPoints != 0 ) {
-						totPoints = 0;
-						goalPoints = Math.floor(Math.random() * 69 + 51);
-						goalNumber.text("Goal Number: " + goalPoints);
-						crys1Points = getRand();
-						crys2Points = getRand();
-						crys3Points = getRand();
-						crys4Points = getRand();
+						// totPoints = 0;
+						// goalPoints = Math.floor(Math.random() * 69 + 51);
+						// goalNumber.text("Goal Number: " + goalPoints);
+						// crys1Points = getRand();
+						// crys2Points = getRand();
+						// crys3Points = getRand();
+						// crys4Points = getRand();
 						Wins ++;
 						win();
+						reset();
+
 						}
 					else if ( totPoints > goalPoints) {
-						losses--;
+						losses++;
 						lose();
+						reset();						
 					}			
 				});
 		});
