@@ -4,8 +4,17 @@ header {
 	color: #e0c5e0;
 }
 
+.backImage {
+	background-image: url("images/concrete_seamless.png")
+}
+
+
 footer {
 	background: #7072ad;
+	color: #e0c5e0;
+}
+
+small {
 	color: #e0c5e0;
 }
 
@@ -36,6 +45,8 @@ li {
 }
 
 body {
+		background-image: url("images/concrete_seamless.png")
+
 	/*background: grey;*/
 	/*background: url("assets/images/concrete_seamless.png")*/
 }
@@ -45,7 +56,7 @@ body {
 	font-size: 33px;
 	padding-bottom: 5px;
 	padding-left: 70px;
-	width: 585px;
+	width: 1170px;
 	color: ;
 }
 
@@ -67,6 +78,8 @@ section p {
 	font-family: Arial, Helvetica, "sans-serif";
 	padding-bottom: 5px;
 	padding-left: 50px;
+	width: 1170px;
+
 }
 
 footer {
@@ -77,6 +90,17 @@ footer {
 	text-align: center;
 }
 
-@media only screen and (max-width: 640px) {
+.winnerTrack {
+	background: #9949af;
 
 }
+
+.loserTrack {
+	background: #23932e;
+
+}
+
+@media only screen and (max-width: 640px) {
+	
+}
+
